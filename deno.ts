@@ -7,19 +7,6 @@ const DOMAIN: string = Deno.env.get("DOMAIN") || "";         // deno分配的域
 const NAME: string = Deno.env.get("NAME") || "Deno";         // 名称
 const PORT: number = parseInt(Deno.env.get("PORT") || "3000"); 
 
-interface Settings {
-  UUID: string;
-  LOG_LEVEL: "none" | "debug" | "info" | "warn" | "error";
-  BUFFER_SIZE: number;
-  XPATH: string;
-  MAX_BUFFERED_POSTS: number;
-  MAX_POST_SIZE: number;
-  SESSION_TIMEOUT: number;
-  CHUNK_SIZE: number;
-  TCP_NODELAY: boolean;
-  TCP_KEEPALIVE: boolean;
-}
-
 const SETTINGS: Settings = {
   UUID,
   LOG_LEVEL: "none",
