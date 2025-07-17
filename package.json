@@ -1,8 +1,8 @@
 {
-  "name": "node-xhttp",
+  "name": "nodejs",
   "version": "1.0.0",
   "description": "nodejs",
-  "author": "eooce",
+  "author": "",
   "repository": "",
   "license": "MIT",
   "private": false,
@@ -11,7 +11,7 @@
     "start": "node app.js"
   },
   "dependencies": {
-    "axios": "^1.8.2"
+    "axios": "^1.9.0"
   },
   "engines": {
     "node": ">=16.0.0",
