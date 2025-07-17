@@ -1,9 +1,8 @@
 
 
 # serverless-xhttp
+* huggingface分支，也可用于其他任意docker平台部署
 * serverless-vless-xhttp，集成哪吒探针，v0或v1可选。
-* 哪吒v0的agent端口为{443,8443,2096,2087,2083,2053}其中之一时，自动开启--tls。
-
 
 * 环境变量
   | 变量名        | 是否必须 | 默认值 | 备注 |
@@ -16,5 +15,5 @@
   | DOMAIN       | 否 |        | 项目域名                         |
   | XPATH        | 否 |  xhttp | 节点路径                         | 
   | AUTO_ACCESS  | 否 |  false | 自动保活，true开启,false关闭       |
-  | SUB_PATH     | 否 |  sub   | 节点订阅路径                      |
+  | SUB_PATH     | 否 | 你的uuid| 节点订阅路径                      |
   | NAME         | 否 |        | 节点名称                         |
