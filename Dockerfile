@@ -1,11 +1,10 @@
-FROM node:20.11.1-alpine3.19
+FROM node:20-alpine3.20
 
 WORKDIR /app
 
-COPY package.json ./
-COPY app.js ./
+COPY app.js index.html package.json ./
 
-EXPOSE 3000
+EXPOSE 7860/tcp
 
 RUN apk add --no-cache curl bash && \
     npm install && \
