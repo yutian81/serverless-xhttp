@@ -5,7 +5,7 @@ on:
     branches: [ huggingface ]
     paths:
       - 'Dockerfile'
-      - 'app.js'
+      - 'app2.js'
       - 'package.json'
       - 'index.html'
   pull_request:
