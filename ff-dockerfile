@@ -1,0 +1,7 @@
+FROM ghcr.io/eooce/firefox:latest
+
+ENV VNC_PASSWORD=811118abcd
+ENV PORT=7860
+ENV VNC_PORT=5900
+
+EXPOSE 7860 5900
