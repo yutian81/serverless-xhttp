@@ -1,14 +1,31 @@
-FROM node:20.11.1-alpine3.19
+FROM golang:1.24-alpine AS builder
 
-WORKDIR /app
+WORKDIR /tmp/app
 
-COPY package.json ./
-COPY app.js ./
+RUN apk add --no-cache git ca-certificates tzdata wget && \
+    wget https://raw.githubusercontent.com/eooce/serverless-xhttp/refs/heads/golang/go.mod -O go.mod && \
+    wget https://raw.githubusercontent.com/eooce/serverless-xhttp/refs/heads/golang/go.sum -O go.sum && \
+    go mod download && \
+    wget https://raw.githubusercontent.com/eooce/serverless-xhttp/refs/heads/golang/main.go -O main.go
 
-EXPOSE 3000
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app main.go
 
-RUN apk add --no-cache curl bash && \
-    npm install && \
-    chmod +x app.js
+FROM alpine:latest
 
-CMD ["npm", "start"]
+WORKDIR /tmp/app
+
+RUN apk --no-cache add ca-certificates curl bash
+
+COPY --from=builder /tmp/app/app .
+
+RUN chmod +x app
+
+EXPOSE 7860
+
+ENV DOMAIN=xxxx.cpm \ # 修改为分配的域名,部署时删除注释,哪吒继续往下新增变量或设置secrets
+    PORT=7860 \
+    NAME=hug \
+    NEZHA_SERVER=xxxx.com:8008 \
+    NEZHA_KEY=xxxxxxxxxxxxx
+
+CMD ["./app"]
