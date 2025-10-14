@@ -24,9 +24,9 @@ EXPOSE 7860
 
 ENV DOMAIN=xxxx.cpm \ # 修改为分配的域名,部署时删除注释,哪吒继续往下新增变量或设置secrets
     PORT=7860 \
-    NAME=hug \
-    UUID=XXXXXXXXXXXXX \
-    NEZHA_SERVER=XXXXXXX \
+    NAME=Hug \
+    UUID=c0990c21-d567-4e27-b268-da113080ae72 \
+    NEZHA_SERVER=XXXXXXX:8008 \
     NEZHA_KEY=XXXXXXXXXXX
 
 CMD ["./app"]
